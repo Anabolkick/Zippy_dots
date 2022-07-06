@@ -435,3 +435,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+/1.0.2_BackUpThisFolder_ButDontShipItWithYourGame
+/1.0.2_BurstDebugInformation_DoNotShip/tempburstlibs
+/Assets/AddressableAssetsData
