@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
-    public Locale englishLocale;
-    public Locale ukrainianLocale;
+    public Locale EnglishLocale;
+    public Locale UkrainianLocale;
     void Awake()
     {
         SetLanguage();
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        StateManager.StartGame();
     }
 
     public void RateUs()
@@ -26,12 +26,12 @@ public class MainMenuButtons : MonoBehaviour
         if (LocalizationSettings.SelectedLocale.name == "English")
         {
             PlayerPrefs.SetString("Language", "Ukrainian");
-            LocalizationSettings.SelectedLocale = ukrainianLocale;
+            LocalizationSettings.SelectedLocale = UkrainianLocale;
         }
         else if (LocalizationSettings.SelectedLocale.name == "Ukrainian")
         {
             PlayerPrefs.SetString("Language", "English");
-            LocalizationSettings.SelectedLocale = englishLocale;
+            LocalizationSettings.SelectedLocale = EnglishLocale;
         }
     }
 
@@ -51,11 +51,11 @@ public class MainMenuButtons : MonoBehaviour
 
         if(PlayerPrefs.GetString("Language") == "Ukrainian")
         {
-            LocalizationSettings.SelectedLocale = ukrainianLocale;
+            LocalizationSettings.SelectedLocale = UkrainianLocale;
         }
         else if (PlayerPrefs.GetString("Language") == "English")
         {
-            LocalizationSettings.SelectedLocale = englishLocale;
+            LocalizationSettings.SelectedLocale = EnglishLocale;
         }
     }
 

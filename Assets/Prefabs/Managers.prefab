@@ -187,9 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5aae22e7c3f6747a0c1e7da9ff9441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointGainedClip: {fileID: 8300000, guid: 067fd2e930ad82042baee522993f8854, type: 3}
+  pointGainedClip: {fileID: 8300000, guid: 5c62ed18f6d2c76409338996f3774391, type: 3}
   loseClip: {fileID: 8300000, guid: 5c1a939408fca3d41958bd0b54e907aa, type: 3}
-  changeDirClip: {fileID: 8300000, guid: 6cca9e532e1b71046b7e53b05e8f0cdf, type: 3}
+  changeDirClip: {fileID: 8300000, guid: f7a90717d5a8d6941bbce75426492626, type: 3}
 --- !u!82 &177246315113009381
 AudioSource:
   m_ObjectHideFlags: 0

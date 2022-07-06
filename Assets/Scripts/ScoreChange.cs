@@ -1,10 +1,10 @@
 using TMPro;
 using UnityEngine;
 
-public class ScoreChanges : MonoBehaviour
+public class ScoreChange : MonoBehaviour
 {
 
-    public static int lastScore;
+    public static int LastScore;
     private static TMP_Text _scoreText;
     private static int _score;
 
@@ -14,11 +14,20 @@ public class ScoreChanges : MonoBehaviour
         EventManager.OnLoseEvent.AddListener(ResetScore);
     }
 
-    public static void ScoreChanged()
+    public static void IncreaseScore()
     {
         _score++;
-        EventManager.OnScoreChangedEvent.Invoke();
+        EventManager.OnScoreIncreasedEvent.Invoke();
         _scoreText.text = _score.ToString();
+    }
+
+    public static void DecreaseScore()
+    {
+        if (_score > 0)
+        {
+            _score--;
+            _scoreText.text = _score.ToString();
+        }
     }
 
     private void ResetScore()
@@ -28,9 +37,9 @@ public class ScoreChanges : MonoBehaviour
         {
             highscore = _score;
             PlayerPrefs.SetInt("Score", highscore);
-            Social.ReportScore(highscore, GPS.leaderboard_leaderboard, _ => {});
+            Social.ReportScore(highscore, GPS.leaderboard_leaderboard, _ => { });
         }
-        lastScore = _score;
+        LastScore = _score;
         _score = 0;
         _scoreText.text = _score.ToString();
     }

@@ -673,7 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988af8fd400b0cf42adb1a03a50ebfdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 175
+  RotationSpeed: 165
 --- !u!4 &840388368
 Transform:
   m_ObjectHideFlags: 0
@@ -1493,12 +1493,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4287ae767be8e7640b24d8c012e95a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 213898857}
-  loseMenu: {fileID: 1757375673}
-  loseBlur: {fileID: 166451600}
-  inGameHud: {fileID: 1169705166}
-  spawner: {fileID: 1977212265}
-  blurMat: {fileID: 2100000, guid: 83571d0da358aab44a47562eb796042a, type: 2}
+  PauseMenu: {fileID: 213898857}
+  LoseMenu: {fileID: 1757375673}
+  LoseBlur: {fileID: 166451600}
+  InGameHud: {fileID: 1169705166}
+  Spawner: {fileID: 1977212265}
+  BlurMat: {fileID: 2100000, guid: 83571d0da358aab44a47562eb796042a, type: 2}
   highscore: 0
   score: 0
 --- !u!1 &1584163486
@@ -12379,7 +12379,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
       propertyPath: xRange
-      value: 2.3
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
+      propertyPath: Difficult
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 6243071761221818762, guid: cdb6263d85807b74aa716d917e4ccba8, type: 3}
+    - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
+      propertyPath: SpawnDelay
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
       propertyPath: spawnDelay

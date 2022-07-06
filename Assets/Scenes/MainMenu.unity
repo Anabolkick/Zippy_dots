@@ -180,11 +180,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
       propertyPath: xRange
-      value: 2.6
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
+      propertyPath: Difficult
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
       propertyPath: difficult
       value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 6243071761221818762, guid: cdb6263d85807b74aa716d917e4ccba8, type: 3}
+    - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
+      propertyPath: SpawnDelay
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 917995559719177495, guid: c004a2914c1bf5a45892e933439ea2bf, type: 3}
       propertyPath: spawnDelay
@@ -523,8 +535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a97585a1a9fc3b448a246629b93bb17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  englishLocale: {fileID: 11400000, guid: 9275884d390761243af92783d9f59d79, type: 2}
-  ukrainianLocale: {fileID: 11400000, guid: bb6f9088af7d3664d8b6072a5fc7c351, type: 2}
+  EnglishLocale: {fileID: 11400000, guid: 9275884d390761243af92783d9f59d79, type: 2}
+  UkrainianLocale: {fileID: 11400000, guid: bb6f9088af7d3664d8b6072a5fc7c351, type: 2}
 --- !u!1 &220848728
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +736,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 284270332}
-        m_TargetAssemblyTypeName: SoundSwitch, Assembly-CSharp
+        m_TargetAssemblyTypeName: SoundButton, Assembly-CSharp
         m_MethodName: ChangeMode
         m_Mode: 1
         m_Arguments:
@@ -806,13 +818,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d08d86ac136404696deff343835a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mode_sprites:
+  ModeSprites:
   - {fileID: 21300000, guid: 763ecad6ee43e694682f4cc92f754518, type: 3}
   - {fileID: 21300000, guid: 73e931eb308384d49b77bd6f312dc1ee, type: 3}
   - {fileID: 21300000, guid: f59e46524590a054497fb1cfde684359, type: 3}
-  Sounds_on: {fileID: 1218225009}
-  Sounds_off: {fileID: 1218225011}
-  Music_off: {fileID: 1218225010}
+  SoundsOn: {fileID: 1218225009}
+  SoundsOff: {fileID: 1218225011}
+  MusicOff: {fileID: 1218225010}
 --- !u!1 &297994673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,6 +1486,23 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1 &1310256703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3389612721335812219, guid: a7f29326e77d40a4ca418cd162ae2f3a, type: 3}
+  m_PrefabInstance: {fileID: 3389612721342106454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310256708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310256703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9420127b5cfa6124d83942d89761743b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1503368642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,11 +2111,19 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3389612721335812194, guid: a7f29326e77d40a4ca418cd162ae2f3a, type: 3}
-      propertyPath: changeDirClip
+      propertyPath: _loseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c1a939408fca3d41958bd0b54e907aa, type: 3}
+    - target: {fileID: 3389612721335812194, guid: a7f29326e77d40a4ca418cd162ae2f3a, type: 3}
+      propertyPath: _changeDirClip
       value: 
       objectReference: {fileID: 8300000, guid: f7a90717d5a8d6941bbce75426492626, type: 3}
     - target: {fileID: 3389612721335812194, guid: a7f29326e77d40a4ca418cd162ae2f3a, type: 3}
-      propertyPath: pointGainedClip
+      propertyPath: _pointLoseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e5cda7fac916c24c9612aeb20b81ae4, type: 3}
+    - target: {fileID: 3389612721335812194, guid: a7f29326e77d40a4ca418cd162ae2f3a, type: 3}
+      propertyPath: _pointGainedClip
       value: 
       objectReference: {fileID: 8300000, guid: 5c62ed18f6d2c76409338996f3774391, type: 3}
     - target: {fileID: 3389612721335812196, guid: a7f29326e77d40a4ca418cd162ae2f3a, type: 3}

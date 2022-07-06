@@ -14,7 +14,7 @@ public class PlayerTriggers : MonoBehaviour
 
         if (coll.gameObject.tag == this.gameObject.tag)
         {
-            ScoreChanges.ScoreChanged();
+            ScoreChange.IncreaseScore();
         }
         else
         {

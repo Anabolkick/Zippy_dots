@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerControl : MonoBehaviour
 {
-    public float rotationSpeed = 100.0f;
+    public float RotationSpeed = 100.0f;
     private float _delta = 0.0f;
     private Quaternion _startRotation;
     private float _direction = 1;
@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
         while (_isMove)
         {
             Quaternion tmp = transform.rotation;
-            transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * -rotationSpeed * _direction);
+            transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * -RotationSpeed * _direction);
             _delta += Quaternion.Angle(tmp, transform.rotation) * _direction;
 
             if (_delta > 360.0f || _delta < -360f)
@@ -60,12 +60,12 @@ public class PlayerControl : MonoBehaviour
     IEnumerator ChangeDirection()
     {
         _direction = -_direction;
-        EventManager.OnDirectionChangedEvent.Invoke();
-        var delta = rotationSpeed * 0.35f;
-        rotationSpeed -= delta;
+        SoundManager.Instance.PlayChangeDirSound();
+        var delta = RotationSpeed * 0.35f;
+        RotationSpeed -= delta;
         for (int i = 0; i < 5; i++)
         {
-            rotationSpeed += delta / 5;
+            RotationSpeed += delta / 5;
             yield return new WaitForSeconds(0.15f);
         }
     }

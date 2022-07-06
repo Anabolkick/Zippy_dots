@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
-    public GameObject loseMenu;
-    public GameObject loseBlur;
-    public GameObject inGameHud;
-    public ProjectileSpawner spawner;
-    public Material blurMat;
+    public GameObject PauseMenu;
+    public GameObject LoseMenu;
+    public GameObject LoseBlur;
+    public GameObject InGameHud;
+    public ProjectileSpawner Spawner;
+    public Material BlurMat;
 
     public int highscore;
     public int score;
 
     void Awake()
     {
-        EventManager.OnScoreChangedEvent.AddListener(MakeHarder);
+        EventManager.OnScoreIncreasedEvent.AddListener(MakeHarder);
         EventManager.OnLoseEvent.AddListener(() => StartCoroutine(OpenLoseMenu()));
 
         PlayGamesPlatform.Activate();
@@ -25,24 +25,25 @@ public class InGameMenu : MonoBehaviour
     }
     public void PauseGame()
     {
-        inGameHud.SetActive(false);
-        pauseMenu.SetActive(true);
+        InGameHud.SetActive(false);
+        PauseMenu.SetActive(true);
         Time.timeScale = 0;
     }
     public void ResumeGame()
     {
-        inGameHud.SetActive(true);
-        pauseMenu.SetActive(false);
+        InGameHud.SetActive(true);
+        PauseMenu.SetActive(false);
         Time.timeScale = 1;
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Game");
+        StateManager.StartGame();
     }
 
     public void LoadMainMenu()
     {
+        StateManager.InGame = false;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -53,12 +54,13 @@ public class InGameMenu : MonoBehaviour
 
     private IEnumerator OpenLoseMenu()
     {
-        score = ScoreChanges.lastScore;
+        StateManager.InGame = false;
+        score = ScoreChange.LastScore;
         highscore = PlayerPrefs.GetInt("Score", 0);
 
-        blurMat.SetFloat("_Size", 0);
-        inGameHud.SetActive(false);
-        loseBlur.SetActive(true);
+        BlurMat.SetFloat("_Size", 0);
+        InGameHud.SetActive(false);
+        LoseBlur.SetActive(true);
         yield return new WaitForSeconds(0.3f);
 
         float curBlur = 0;
@@ -68,18 +70,18 @@ public class InGameMenu : MonoBehaviour
         var addValue = finalBlur / iterCount;
         for (int i = 0; i <= iterCount; i++)
         {
-            blurMat.SetFloat("_Size", curBlur);
+            BlurMat.SetFloat("_Size", curBlur);
             curBlur += addValue;
             yield return new WaitForSeconds(time/iterCount);
         }
-        loseMenu.SetActive(true);
-        spawner.difficult = 1f;
-        spawner.spawnDelay = 1.6f;
+        LoseMenu.SetActive(true);
+        Spawner.Difficult = 1f;
+        Spawner.SpawnDelay = 1.6f;
     }
 
     private void MakeHarder()
     {
-        spawner.difficult += 0.02f;
-        spawner.spawnDelay -= 0.03f;
+        Spawner.Difficult += 0.02f;
+        Spawner.SpawnDelay -= 0.03f;
     }
 }
